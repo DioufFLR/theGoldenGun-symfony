@@ -3,14 +3,19 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
+use App\Entity\Order;
+use App\Entity\OrderDetails;
+use App\Entity\Payment;
 use App\Entity\Product;
 use App\Entity\SalesPerson;
 use App\Entity\Supplier;
 use App\Entity\User;
+use Container24h671p\getOrderDetailsRepositoryService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use function Symfony\Component\Clock\now;
 
 class AppFixtures extends Fixture
 {
@@ -318,13 +323,109 @@ class AppFixtures extends Fixture
         // ----Order
         // --------------------------
 
+        $order = new Order();
+        $order->setUser($user)
+            ->setOrderDate(new \DateTime('2023-12-03'))
+            ->setOrderBillingAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDeliveryAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDiscount(null)
+            ->setOrderPaymentStatus(true)
+            ->setOrderShippingStatus('En cours');
+        $manager->persist($order);
+
+        $order2 = new Order();
+        $order2->setUser($user4)
+            ->setOrderDate(new \DateTime('2023-12-03'))
+            ->setOrderBillingAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDeliveryAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDiscount(null)
+            ->setOrderPaymentStatus(true)
+            ->setOrderShippingStatus('En cours');
+        $manager->persist($order2);
+
+        $order3 = new Order();
+        $order3->setUser($user2)
+            ->setOrderDate(new \DateTime('2023-11-03'))
+            ->setOrderBillingAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDeliveryAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDiscount(null)
+            ->setOrderPaymentStatus(true)
+            ->setOrderShippingStatus('Reçu');
+        $manager->persist($order3);
+
+        $order4 = new Order();
+        $order4->setUser($user3)
+            ->setOrderDate(new \DateTime('2023-07-15'))
+            ->setOrderBillingAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDeliveryAddress('10 rue de la boucherie, Bordeaux')
+            ->setOrderDiscount(null)
+            ->setOrderPaymentStatus(true)
+            ->setOrderShippingStatus('En cours');
+        $manager->persist($order4);
+
         // --------------------------
         // ----OrderDetails
         // --------------------------
 
+        $orderDetail = new OrderDetails();
+        $orderDetail->setOrders($order)
+            ->setProduct($product)
+            ->setQuantity(12)
+            ->setOrderDetailsPrice(($orderDetail->getQuantity()) * ($product->getProductPrice()));
+        $manager->persist($orderDetail);
+
+        $orderDetail2 = new OrderDetails();
+        $orderDetail2->setOrders($order2)
+            ->setProduct($product2)
+            ->setQuantity(4)
+            ->setOrderDetailsPrice(($orderDetail2->getQuantity()) * ($product->getProductPrice()));
+        $manager->persist($orderDetail2);
+
+        $orderDetail3 = new OrderDetails();
+        $orderDetail3->setOrders($order3)
+            ->setProduct($product3)
+            ->setQuantity(2)
+            ->setOrderDetailsPrice(($orderDetail3->getQuantity()) * ($product->getProductPrice()));
+        $manager->persist($orderDetail3);
+
+        $orderDetail4 = new OrderDetails();
+        $orderDetail4->setOrders($order4)
+            ->setProduct($product5)
+            ->setQuantity(21)
+            ->setOrderDetailsPrice(($orderDetail4->getQuantity()) * ($product->getProductPrice()));
+        $manager->persist($orderDetail4);
+
         // --------------------------
         // ----Payment
         // --------------------------
+
+        $payment = new Payment();
+        $payment->setOrders($order)
+            ->setPaymentAmount(($orderDetail->getOrderDetailsPrice()))
+            ->setPaymentDate(new \DateTime('2023-12-04'))
+            ->setPaymentMethod('CB');
+        $manager->persist($payment);
+
+        $payment2 = new Payment();
+        $payment2->setOrders($order2)
+            ->setPaymentAmount(($orderDetail2->getOrderDetailsPrice()))
+            ->setPaymentDate(new \DateTime('2023-12-04'))
+            ->setPaymentMethod('Virement');
+        $manager->persist($payment2);
+
+        $payment3 = new Payment();
+        $payment3->setOrders($order3)
+            ->setPaymentAmount(($orderDetail3->getOrderDetailsPrice()))
+            ->setPaymentDate(new \DateTime('2023-11-10'))
+            ->setPaymentMethod('CB');
+        $manager->persist($payment3);
+
+        $payment4 = new Payment();
+        $payment4->setOrders($order4)
+            ->setPaymentAmount(($orderDetail4->getOrderDetailsPrice()))
+            ->setPaymentDate(new \DateTime('2023-08-20'))
+            ->setPaymentMethod('Chèque');
+        $manager->persist($payment4);
 
         $manager->flush();
     }
