@@ -4,39 +4,69 @@
 
 {% block body %}
 
-<div class="bg-gray-200 relative">
+    <div class="bg-gray-200 relative">
 
 
-    <div class="relative isolate px-6 pt-14 lg:px-8">
-        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-             aria-hidden="true">
-        </div>
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-                <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    Announcing our next round of funding. <a href="#" class="font-semibold text-rose-400"><span
-                                class="absolute inset-0" aria-hidden="true"></span>Read more <span
-                                aria-hidden="true">&rarr;</span></a>
+        <div class="relative isolate px-6 pt-14 lg:px-8">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                 aria-hidden="true">
+            </div>
+            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-30">
+                <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+                    <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                        Announcing our next round of funding. <a href="#" class="font-semibold text-rose-400"><span
+                                    class="absolute inset-0" aria-hidden="true"></span>Read more <span
+                                    aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Les meilleures armes du
+                        marché</h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-600">Envie de protéger votre famille ? Vous êtes au bon
+                        endroit, ici, vous trouverez tous ce qu'il vous faut. Nos conseillers seront là pour vous
+                        n'hésitez
+                        pas ! </p>
                 </div>
             </div>
-            <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Les meilleures armes du
-                    marché</h1>
-                <p class="mt-6 text-lg leading-8 text-gray-600">Envie de protéger votre famille ? Vous êtes au bon
-                    endroit, ici, vous trouverez tous ce qu'il vous faut. Nos conseillers seront là pour vous n'hésitez
-                    pas ! </p>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                 aria-hidden="true">
             </div>
         </div>
-        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-             aria-hidden="true">
-        </div>
-    </div>
 
-    <div class="relative isolate px-6 pt-14 lg:px-8">
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            <div>
-                <h2>Les principales catégories</h2>
+        <div class="relative px-6 pt-14 lg:px-8">
+            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+                <div>
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Catégories Principales</h1>
+                </div>
+                <div class="py-4 grid grid-cols-3">
+                    {% for category in categories %}
+                        <div class="grid ">
+                            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
+                                    <img class="rounded-t-lg" src="{{ category.categoryImage }}" alt="catégories"/>
+                                </a>
+                                <div class="p-5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ category.categoryName }}</h5>
+                                    </a>
+                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ category.categoryDescription }}</p>
+                                    <a href="#"
+                                       class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-rose-400 rounded-lg hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Read more
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
             </div>
         </div>
     </div>
-    {% endblock %}
+{% endblock %}

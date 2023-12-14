@@ -138,7 +138,7 @@ class AppFixtures extends Fixture
         $parent->setCategoryName('Arme de poing')
             ->setCategoryDescription('Armes qui peuvent êtres prisent à une seule main')
             ->setParent(null)
-            ->setCategoryImage('assets/img/pistolet.png');
+            ->setCategoryImage('assets/img/pistolet.jpg');
         $manager->persist($parent);
 
         $parent2 = new Category();
@@ -152,7 +152,7 @@ class AppFixtures extends Fixture
         $parent3->setCategoryName('Arme exotique')
             ->setCategoryDescription("Tout les autres styles d'armes pouvant exister!")
             ->setParent(null)
-            ->setCategoryImage('assets/img/exotique.jpg');
+            ->setCategoryImage('assets/img/exotiques.jpg');
         $manager->persist($parent3);
 
         // sous-catégories
