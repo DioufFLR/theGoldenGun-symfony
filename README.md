@@ -14,6 +14,7 @@
 ```shell
 composer install
 composer update
+npm install
 ```
 
 2. Create .env.local with your log
@@ -24,5 +25,13 @@ composer update
 # DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
 # DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=15&charset=utf8"
 ```
+3. Run 
+
+```shell
+npm run watch
+symfony serve -d
+```
+<br/>
+
 ![badge-ukraine.svg](public%2Fassets%2Fimg%2Fbadge-ukraine.svg)
 ![diouf-fleur.svg](public%2Fassets%2Fimg%2Fdiouf-fleur.svg)
