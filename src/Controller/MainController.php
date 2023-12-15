@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,13 @@ class MainController extends AbstractController
             'categories' => $categoryRepository->findBy([
                 'parent' => null
             ])
+        ]);
+    }
+
+    #[Route('/categories/{category}', name: 'app_categories')]
+    public function categories(Category $category): Response{
+        return $this->render('main/categories.html.twig', [
+            'category' => $category
         ]);
     }
 }
