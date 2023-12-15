@@ -26,5 +26,7 @@ class MainController extends AbstractController
         return $this->render('main/categories.html.twig', [
             'category' => $category
         ]);
+    dd($category);
     }
+
 }

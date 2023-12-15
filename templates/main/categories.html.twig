@@ -3,4 +3,37 @@
 {% block title %}TheGoldenGun - accueil{% endblock %}
 
 {% block body %}
+    <div class="pb-24">
+        <div>
+            <h1 class="flex justify-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl my-8">{{ category.categoryName }}</h1>
+        </div>
+        <div class="relative grid grid-cols-1 xl:grid-cols-3 gap-4 mb-24 justify-center mx-auto">
+
+            <!-- card -->
+            {% for subcategory in category.categories %}
+                <div class="flex flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60">
+                    <!-- img -->
+                    <img class="aspect-video w-full max-w-[50em] rounded-t-2xl object-center"
+                         src='{{ absolute_url(asset(''~ subcategory.categoryImage )) }}'/>
+                    <!-- text information -->
+                    <div class="p-4">
+                        <small class="text-rose-400 text-xs">theGoldenGun</small>
+                        <h1 class="text-2xl font-medium text-slate-600 pb-2">{{ subcategory.categoryName }}</h1>
+                        <p class="text-sm tracking-tight font-light text-slate-400 leading-6">{{ subcategory.categoryDescription }}</p>
+                    </div>
+                    <div class="flex justify-center py-3">
+                        <button
+                                data-ripple-light="true"
+                                data-popover-target="popover"
+                                class="middle none center rounded-lg bg-gradient-to-r from-rose-600 to-rose-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        >
+                            <a href="#">Voir</a>
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
 {% endblock %}

@@ -158,49 +158,49 @@ class AppFixtures extends Fixture
         // sous-catégories
         $cat = new Category();
         $cat->setCategoryName('Fusils de précision')
-            ->setCategoryImage('assets/css/img/fusil_précision.jpg')
+            ->setCategoryImage('assets/img/fusil_précision.jpg')
             ->setCategoryDescription('Fusil permettant des tirs à longue distance.')
             ->setParent($parent2);
         $manager->persist($cat);
 
         $cat2 = new Category();
         $cat2->setCategoryName('Fusils à pompe')
-            ->setCategoryImage('assets/css/img/shotgun.jpg')
+            ->setCategoryImage('assets/img/shotgun.jpg')
             ->setCategoryDescription('Fusil de type fusil de chasse se rechargeant en pompant.')
             ->setParent($parent3);
         $manager->persist($cat2);
 
         $cat3 = new Category();
         $cat3->setCategoryName('Mitrailleuses')
-            ->setCategoryImage('assets/css/img/exotiques.jpg')
+            ->setCategoryImage('assets/img/exotiques.jpg')
             ->setCategoryDescription('Mitrailleuse permet de tirer des munitions de gros calibre avec une cadence de tir soutenu. Généralement utilisé pour faire baisser les têtes.')
             ->setParent($parent3);
         $manager->persist($cat3);
 
         $cat4 = new Category();
         $cat4->setCategoryName('Pistolets mitrailleurs')
-            ->setCategoryImage('assets/css/img/armes3.jpg')
+            ->setCategoryImage('assets/img/armes3.jpg')
             ->setCategoryDescription('Armes avec une cadences de tir élevée efficace à courtes portée.')
             ->setParent($parent);
         $manager->persist($cat4);
 
         $cat5 = new Category();
         $cat5->setCategoryName('Pistolets et Revolvers')
-            ->setCategoryImage('assets/css/img/pistolet.jpg')
+            ->setCategoryImage('assets/img/pistolet.jpg')
             ->setCategoryDescription('Armes à une main efficace à courte portée, pratique à avoir toujours sur soi.')
             ->setParent($parent);
         $manager->persist($cat5);
 
         $cat6 = new Category();
         $cat6->setCategoryName("Fusils d'assaut")
-            ->setCategoryImage('assets/css/img/fusils_assaut.jpg')
+            ->setCategoryImage('assets/img/fusils_assaut.jpg')
             ->setCategoryDescription('Fusil souvent au coup par coup, rafale ou au coup par coup utilisé pour les combats à mi-distance.')
             ->setParent($parent2);
         $manager->persist($cat6);
 
         $cat7 = new Category();
         $cat7->setCategoryName("Miniguns")
-            ->setCategoryImage('assets/css/img/minigun.jpeg')
+            ->setCategoryImage('assets/img/minigun.jpeg')
             ->setCategoryDescription('Armes souvent sur affût, avec une cadence de tir énorme. Grosse capacité de destruction.')
             ->setParent($parent3);
         $manager->persist($cat7);
