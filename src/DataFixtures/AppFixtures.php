@@ -228,7 +228,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product2->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/fusil_assaut.jpg');
+            ->setProductImage('assets/img/fusils_assaut.jpg');
         $manager->persist($product2);
 
         $product3 = new Product();

@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+
+//    Affiche toutes les catégories parentes
     #[Route('/', name: 'app_main')]
     public function index(CategoryRepository $categoryRepository): Response
     {
@@ -23,6 +25,7 @@ class MainController extends AbstractController
         ]);
     }
 
+//    Sous-catégories d'une catégorie parent
     #[Route('/categories/{category}', name: 'app_categories')]
     public function categories(Category $category): Response
     {
@@ -31,11 +34,21 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/products/{category}}', name: 'app_products')]
+//    Produits associés a une sous-catégorie
+    #[Route('/products/{category}', name: 'app_products')]
     public function products(Category $category): Response
     {
         return $this->render('main/products.html.twig', [
             'category' => $category,
+        ]);
+    }
+
+// Détails d'un produit
+    #[Route('/detail/{product}', name: 'app_detail')]
+    public function detail(Product $product): Response
+    {
+        return $this->render('main/detail.html.twig', [
+            'product' => $product
         ]);
     }
 }
