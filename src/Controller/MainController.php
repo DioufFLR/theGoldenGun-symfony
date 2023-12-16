@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Product;
 use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,11 +24,18 @@ class MainController extends AbstractController
     }
 
     #[Route('/categories/{category}', name: 'app_categories')]
-    public function categories(Category $category): Response{
+    public function categories(Category $category): Response
+    {
         return $this->render('main/categories.html.twig', [
             'category' => $category
         ]);
-    dd($category);
     }
 
+    #[Route('/products/{category}}', name: 'app_products')]
+    public function products(Category $category): Response
+    {
+        return $this->render('main/products.html.twig', [
+            'category' => $category,
+        ]);
+    }
 }

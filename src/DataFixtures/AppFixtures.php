@@ -210,7 +210,7 @@ class AppFixtures extends Fixture
         // --------------------------
 
         $product = new Product();
-        $product->setCategory($cat)
+        $product->setCategory($cat5)
             ->setProductLabel('Glock 17')
             ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
             ->setProductPrice(500.99)
@@ -221,7 +221,7 @@ class AppFixtures extends Fixture
         $manager->persist($product);
 
         $product2 = new Product();
-        $product2->setCategory($cat2)
+        $product2->setCategory($cat6)
             ->setProductLabel('hk 416')
             ->setProductDescription("Fusil au calibre Otan 5,56 mm, le HK 416 F dispose d'une crosse réglable et de talons de crosse permettant de s'adapter à la morphologie de chaque tireur. Disposant d'une autonomie accrue, le combattant sera muni de 10 chargeurs de 30 cartouches .")
             ->setProductPrice(899.99)
@@ -232,7 +232,7 @@ class AppFixtures extends Fixture
         $manager->persist($product2);
 
         $product3 = new Product();
-        $product3->setCategory($cat3)
+        $product3->setCategory($cat2)
             ->setProductLabel('Spas 12')
             ->setProductDescription("Le SPAS 12, doté d'un canon à âme lisse, tire des cartouches de calibre 12/70mm et dispose d'un magasin tubulaire. Semi-automatique, il fonctionne également en chargement manuel. ")
             ->setProductPrice(1500.99)
@@ -243,8 +243,8 @@ class AppFixtures extends Fixture
         $manager->persist($product3);
 
         $product4 = new Product();
-        $product4->setCategory($cat)
-            ->setProductLabel('Glock 17')
+        $product4->setCategory($cat5)
+            ->setProductLabel('Glock 21')
             ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
             ->setProductPrice(500.99)
             ->setSlug($this->slugger->slug($product4->getProductLabel())->lower())
