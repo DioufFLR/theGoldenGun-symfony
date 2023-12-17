@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion - TheGoldenGun{% endblock %}
 
 {% block body %}
 
@@ -30,7 +30,7 @@
                 <span class="sr-only">Info</span>
                 <div>
                     <span class="font-medium">SUCCÈS</span> Vous êtes connecté {{ app.user.userIdentifier }}, <a
-                            href="{{ path('app_logout') }}">Logout</a>
+                            href="{{ path('app_logout') }}">Me déconnecter</a>
                 </div>
             </div>
         {% endif %}
@@ -86,7 +86,7 @@
                             </button>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Vous n'avez pas encore de compte ?
-                                <a href="#" class="font-medium text-rose-500 hover:underline">
+                                <a href="{{ path('app_register') }}" class="font-medium text-rose-500 hover:underline">
                                     S'enregistrer
                                 </a>
                             </p>
