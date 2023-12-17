@@ -26,12 +26,16 @@
                     </ul>
 
                     <div class="md:flex items-center hidden space-x-4 ml-8 lg:ml-12">
-                        <h1 class="text-white py-2 hover:cursor-pointer hover:text-rose-400">
-                            <a href="{{ path('app_login') }}">LOGIN</a>
+                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg">
+                            <a href="{{ path('app_login') }}">Me Connecter</a>
                         </h1>
                         <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg">
-                            <a href="">SIGNUP</a>
+                            <a href="{{ path('app_logout') }}">Me déconnecter</a>
                         </h1>
+                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg">
+                            <a href="{{ path('app_register') }}">S'inscrire</a>
+                        </h1>
+
                     </div>
                 </div>
             </div>
