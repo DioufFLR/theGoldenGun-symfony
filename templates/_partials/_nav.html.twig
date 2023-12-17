@@ -26,16 +26,19 @@
                     </ul>
 
                     <div class="md:flex items-center hidden space-x-4 ml-8 lg:ml-12">
-                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg">
-                            <a href="{{ path('app_login') }}">Me Connecter</a>
-                        </h1>
-                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg">
-                            <a href="{{ path('app_logout') }}">Me déconnecter</a>
-                        </h1>
-                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg">
-                            <a href="{{ path('app_register') }}">S'inscrire</a>
+                        {% if app.user %}
+                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                            <a href="{{ path('app_logout') }}">Déconnexion</a>
                         </h1>
 
+                        {% else %}
+                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                            <a href="{{ path('app_login') }}">Connexion</a>
+                        </h1>
+                        <h1 class="text-text-gray-600  py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-r from-rose-600 to-rose-400 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                            <a href="{{ path('app_register') }}">S'inscrire</a>
+                        </h1>
+                        {% endif %}
                     </div>
                 </div>
             </div>
