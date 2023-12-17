@@ -75,8 +75,8 @@ class AppFixtures extends Fixture
             ->setPassword($this->userPasswordHasherInterface->hashPassword($admin, 'bonjour'))
             ->setUserReference(null)
             ->setRoles(['ROLE_ADMIN'])
-            ->setUserReference('ADMIN001')
-            ->setIsVerified(false);
+            ->setUserReference('ADMIN001');
+//            ->setIsVerified(false);
         $manager->persist($admin);
 
         // generate 4 users
@@ -88,7 +88,7 @@ class AppFixtures extends Fixture
             ->setUserReference('REF001')
             ->setUserCoefficient(1)
             ->setSalesPerson($salesPerson)
-            ->setIsVerified(false)
+//            ->setIsVerified(false)
             ->setUserAddress('123 Main St, New York');
         $manager->persist($user);
 
@@ -100,7 +100,7 @@ class AppFixtures extends Fixture
             ->setUserReference('REF002')
             ->setUserCoefficient(1)
             ->setSalesPerson($salesPerson)
-            ->setIsVerified(false)
+//            ->setIsVerified(false)
             ->setUserAddress('123 Main St, Paris 75020');
         $manager->persist($user2);
 
@@ -113,7 +113,7 @@ class AppFixtures extends Fixture
             ->setUserReference('REF003')
             ->setUserCoefficient(1)
             ->setSalesPerson($salesPerson)
-            ->setIsVerified(false)
+//            ->setIsVerified(false)
             ->setUserAddress('10 rue de la vie, Amiens 80000');
         $manager->persist($user3);
 
@@ -125,7 +125,7 @@ class AppFixtures extends Fixture
             ->setUserReference('REF004')
             ->setUserCoefficient(1)
             ->setSalesPerson($salesPerson)
-            ->setIsVerified(false)
+//            ->setIsVerified(false)
             ->setUserAddress('11 rue Léonard massé, Beauvais 60000');
         $manager->persist($user4);
 
