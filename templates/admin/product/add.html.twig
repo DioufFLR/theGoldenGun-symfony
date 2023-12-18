@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="container-fluid bg-gray-900">
+    <div class="flex">
+        <div class="flex text-center w-full justify-center my-10">
+            <h1 class="text-3xl flex font-bold md:text-5xl text-rose-400 ">
+                <span class="text-white">Ajouter un </span>
+                Produit
+            </h1>
+            {% include 'admin/product/_form.html.twig' %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
