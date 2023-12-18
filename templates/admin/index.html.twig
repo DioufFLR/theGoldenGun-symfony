@@ -1,20 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}CRUD - TheGoldenGun{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/diouf/Bureau/theGoldenGun-symfony/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/diouf/Bureau/theGoldenGun-symfony/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section class="container-fluid bg-gray-900">
+        <div class="flex">
+            <div class="flex text-center w-full justify-center my-10">
+                <h1 class="text-3xl flex font-bold md:text-5xl text-rose-400 ">
+                    <span class="text-white">Administration </span>
+                    CRUD
+                </h1>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="text-white">
+                <div class="m-5 mt-10 py-4">
+                    <h2 class="py-4 text-3xl md:text-4xl ">Gestion des <span class="text-rose-400">Utilisateurs</span>
+                    </h2>
+                    <a href="{{ path('admin_users_') }}">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Gérer
+                            </span>
+                        </button>
+                    </a>
+                </div>
+                <div class="m-5 mt-10 py-4">
+                    <h2 class="py-4 text-3xl md:text-4xl ">Gestion des <span class="text-rose-400">Produits</span></h2>
+                    <a href="{{ path('admin_products_index') }}">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Gérer
+                            </span>
+                        </button>
+                    </a>
+                </div>
+                <div class="m-5 mt-10 py-4">
+                    <h2 class="py-4 text-3xl md:text-4xl ">Gestion des <span class="text-rose-400">Catégories</span>
+                    </h2>
+                    <a href="#">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Gérer
+                            </span>
+                        </button>
+                    </a>
+                </div>
+                <div class="m-5 mt-10 py-4">
+                    <h2 class="py-4 text-3xl md:text-4xl ">Gestion des <span class="text-rose-400">Fournisseurs</span>
+                    </h2>
+                    <a href="#">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Gérer
+                            </span>
+                        </button>
+                    </a>
+                </div>
+                <div class="m-5 mt-10 py-4">
+                    <h2 class="py-4 text-3xl md:text-4xl ">Gestion des <span class="text-rose-400">Vendeurs</span></h2>
+                    <a href="#">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Gérer
+                            </span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
