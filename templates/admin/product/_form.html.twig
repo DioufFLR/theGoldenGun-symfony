@@ -1,44 +1,43 @@
-
 <div class="space-y-4 md:space-y-6">
     {{ form_start(productForm) }}
     <div class="my-6">
-        <label for="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-           Nom du Produit
+        <label for="{{ productForm.productLabel.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Nom du Produit
         </label>
         {{ form_widget(productForm.productLabel) }}
     </div>
     <div class="my-6">
-        <label for="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label for="{{ productForm.productDescription.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Description
         </label>
         {{ form_widget(productForm.productDescription) }}
     </div>
     <div class="my-6">
-        <label for="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label for="{{ productForm.productPrice.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Prix
         </label>
         {{ form_widget(productForm.productPrice) }}
     </div>
     <div class="my-6">
-        <label for="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label for="{{ productForm.productImage.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Image
         </label>
         {{ form_widget(productForm.productImage) }}
     </div>
     <div class="my-6">
-        <label for="label" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label for="{{ productForm.is_active.vars.id }}" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Actif ?
         </label>
         {{ form_widget(productForm.is_active) }}
     </div>
     <div class="my-6">
-        <label for="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label for="{{ productForm.supplier.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Fournisseur
         </label>
         {{ form_widget(productForm.supplier) }}
     </div>
     <div class="my-6">
-        <label for="label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label for="{{ productForm.category.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Catégorie
         </label>
         {{ form_widget(productForm.category) }}
@@ -46,7 +45,7 @@
 
     <button type="submit" class="w-full my-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
     <span class="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-        Ajouter
+        {{ button_label|default('Ajouter') }}
     </span>
     </button>
     {{ form_end(productForm) }}

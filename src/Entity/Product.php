@@ -38,6 +38,7 @@ class Product
     private ?float $productPrice = null;
 
     #[ORM\Column(length: 255)]
+    #[ORM\JoinColumn(nullable: false)]
     private ?string $productImage = null;
 
     #[ORM\Column]
