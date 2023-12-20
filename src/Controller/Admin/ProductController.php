@@ -34,19 +34,34 @@ class ProductController extends AbstractController
         // On traite la requête du formulaire
         $productForm->handleRequest($request);
 
-            // On vérifie si le formulaire est soumis et valide
-            if ($productForm->isSubmitted() && $productForm->isValid()) {
-                // Générer le slug à partir du label du produit
-                $slug = $slugger->slug($product->getProductLabel());
-                $product->setSlug($slug);
+        // On vérifie si le formulaire est soumis et valide
+        if ($productForm->isSubmitted() && $productForm->isValid()) {
 
-                // Enregistrer le produit en base de données
-                $em->persist($product);
-                $em->flush();
+            /** @var UploadedFile $file */
+            $file = $productForm->get('productImage')->getData();
 
-                // Rediriger vers la page d'index des produits
-                return $this->redirectToRoute('admin_products_index');
+            if ($file) {
+                $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $file->guessExtension();
+                try {
+                    $file->move($this->getParameter('images_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $product->setProductImage($newFilename);
             }
+
+            // Générer le slug à partir du label du produit
+            $slug = $slugger->slug($product->getProductLabel());
+            $product->setSlug($slug);
+
+            // Enregistrer le produit en base de données
+            $em->persist($product);
+            $em->flush();
+
+            // Rediriger vers la page d'index des produits
+            return $this->redirectToRoute('admin_products_index');
+        }
 
         return $this->render('admin/product/add.html.twig', [
             'productForm' => $productForm->createView()
@@ -54,7 +69,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/edit/{id}', name: 'edit')]
-    public function edit(Product $product, Request $request, EntityManagerInterface $em, SluggerInterface $slugger, $id): Response
+    public function edit(Product $product, Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         // On crée le formulaire
         $productForm = $this->createForm(ProductFormType::class, $product);
@@ -64,6 +79,21 @@ class ProductController extends AbstractController
 
         // On vérifie si le formulaire est soumis et valide
         if ($productForm->isSubmitted() && $productForm->isValid()) {
+
+            /** @var UploadedFile $file */
+            $file = $productForm->get('productImage')->getData();
+
+            if ($file) {
+                $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $file->guessExtension();
+                try {
+                    $file->move($this->getParameter('images_directory'), $newFilename);
+                } catch (FileException $e) {
+                    //... handle exception if something happens during file upload
+                }
+                $product->setProductImage($newFilename);
+            }
+
             // Générer le slug à partir du label du produit
             $slug = $slugger->slug($product->getProductLabel());
             $product->setSlug($slug);
@@ -78,8 +108,8 @@ class ProductController extends AbstractController
 
         return $this->render('admin/product/edit.html.twig', [
             'productForm' => $productForm->createView(),
-            'product' => $product
-        ]);    }
+            'product' => $product]);
+    }
 
     #[Route('/delete/{id}', name: 'delete')]
     public function delete(Product $product): Response

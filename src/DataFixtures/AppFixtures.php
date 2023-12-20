@@ -138,69 +138,69 @@ class AppFixtures extends Fixture
         $parent->setCategoryName('Arme de poing')
             ->setCategoryDescription('Armes qui peuvent êtres prisent à une seule main')
             ->setParent(null)
-            ->setCategoryImage('assets/img/pistolet.jpg');
+            ->setCategoryImage('pistolet.jpg');
         $manager->persist($parent);
 
         $parent2 = new Category();
         $parent2->setCategoryName("Arme d'épaule")
             ->setCategoryDescription('Armes qui se tiennent à deux mains')
             ->setParent(null)
-            ->setCategoryImage('assets/img/fusils_assaut.jpg');
+            ->setCategoryImage('fusils_assaut.jpg');
         $manager->persist($parent2);
 
         $parent3 = new Category();
         $parent3->setCategoryName('Arme exotique')
             ->setCategoryDescription("Tout les autres styles d'armes pouvant exister!")
             ->setParent(null)
-            ->setCategoryImage('assets/img/exotiques.jpg');
+            ->setCategoryImage('exotiques.jpg');
         $manager->persist($parent3);
 
         // sous-catégories
         $cat = new Category();
         $cat->setCategoryName('Fusils de précision')
-            ->setCategoryImage('assets/img/fusil_précision.jpg')
+            ->setCategoryImage('fusil_précision.jpg')
             ->setCategoryDescription('Fusil permettant des tirs à longue distance.')
             ->setParent($parent2);
         $manager->persist($cat);
 
         $cat2 = new Category();
         $cat2->setCategoryName('Fusils à pompe')
-            ->setCategoryImage('assets/img/shotgun.jpg')
+            ->setCategoryImage('shotgun.jpg')
             ->setCategoryDescription('Fusil de type fusil de chasse se rechargeant en pompant.')
             ->setParent($parent3);
         $manager->persist($cat2);
 
         $cat3 = new Category();
         $cat3->setCategoryName('Mitrailleuses')
-            ->setCategoryImage('assets/img/exotiques.jpg')
+            ->setCategoryImage('exotiques.jpg')
             ->setCategoryDescription('Mitrailleuse permet de tirer des munitions de gros calibre avec une cadence de tir soutenu. Généralement utilisé pour faire baisser les têtes.')
             ->setParent($parent3);
         $manager->persist($cat3);
 
         $cat4 = new Category();
         $cat4->setCategoryName('Pistolets mitrailleurs')
-            ->setCategoryImage('assets/img/armes3.jpg')
+            ->setCategoryImage('armes3.jpg')
             ->setCategoryDescription('Armes avec une cadences de tir élevée efficace à courtes portée.')
             ->setParent($parent);
         $manager->persist($cat4);
 
         $cat5 = new Category();
         $cat5->setCategoryName('Pistolets et Revolvers')
-            ->setCategoryImage('assets/img/pistolet.jpg')
+            ->setCategoryImage('pistolet.jpg')
             ->setCategoryDescription('Armes à une main efficace à courte portée, pratique à avoir toujours sur soi.')
             ->setParent($parent);
         $manager->persist($cat5);
 
         $cat6 = new Category();
         $cat6->setCategoryName("Fusils d'assaut")
-            ->setCategoryImage('assets/img/fusils_assaut.jpg')
+            ->setCategoryImage('fusils_assaut.jpg')
             ->setCategoryDescription('Fusil souvent au coup par coup, rafale ou au coup par coup utilisé pour les combats à mi-distance.')
             ->setParent($parent2);
         $manager->persist($cat6);
 
         $cat7 = new Category();
         $cat7->setCategoryName("Miniguns")
-            ->setCategoryImage('assets/img/minigun.jpeg')
+            ->setCategoryImage('minigun.jpeg')
             ->setCategoryDescription('Armes souvent sur affût, avec une cadence de tir énorme. Grosse capacité de destruction.')
             ->setParent($parent3);
         $manager->persist($cat7);
@@ -217,7 +217,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product);
 
         $product2 = new Product();
@@ -228,7 +228,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product2->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/fusils_assaut.jpg');
+            ->setProductImage('fusils_assaut.jpg');
         $manager->persist($product2);
 
         $product3 = new Product();
@@ -239,7 +239,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product3->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/shotgun.jpg');
+            ->setProductImage('shotgun.jpg');
         $manager->persist($product3);
 
         $product4 = new Product();
@@ -250,7 +250,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product4->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product4);
 
         $product5 = new Product();
@@ -261,7 +261,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product5->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product5);
 
         $product6 = new Product();
@@ -272,7 +272,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product6->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product6);
 
         $product7 = new Product();
@@ -283,7 +283,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product7->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product7);
 
         $product8 = new Product();
@@ -294,7 +294,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product8->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product8);
 
         $product9 = new Product();
@@ -305,7 +305,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product9->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product9);
 
         $product10 = new Product();
@@ -316,7 +316,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product10->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('assets/img/glock-17.jpg');
+            ->setProductImage('glock-17.jpg');
         $manager->persist($product10);
 
         // --------------------------
