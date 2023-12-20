@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Product;
 use App\Form\ProductFormType;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,9 +16,12 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(ProductRepository $productRepository): Response
     {
-        return $this->render('admin/product/index.html.twig');
+        $products = $productRepository->findAll();
+        return $this->render('admin/product/index.html.twig', [
+            'products' => $products
+        ]);
     }
 
     #[Route('/add', name: 'add')]

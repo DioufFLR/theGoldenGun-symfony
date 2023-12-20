@@ -14,7 +14,7 @@
                 <div class="flex flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60">
                     <!-- img -->
                     <img class="aspect-video w-full max-w-[50em] rounded-t-2xl object-cover transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-                         src='{{ absolute_url(asset(''~ subCategory.categoryImage )) }}'/>
+                         src='{{ asset('assets/img/'~ subCategory.categoryImage ) }}'/>
                     <!-- text information -->
                     <div class="p-4">
                         <small class="text-rose-400 text-xs">theGoldenGun</small>
@@ -27,7 +27,7 @@
                                 data-popover-target="popover"
                                 class="middle none center rounded-lg bg-gradient-to-r from-rose-600 to-rose-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                         >
-                            <a href="{{ path('app_products', { category: subCategory.id })}}">Voir</a>
+                            <a href="{{ path('app_products', { category: subCategory.id }) }}">Voir</a>
                         </button>
                     </div>
                 </div>

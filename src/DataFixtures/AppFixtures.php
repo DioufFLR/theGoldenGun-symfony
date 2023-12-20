@@ -250,40 +250,40 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product4->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('glock_21.jpeg');
         $manager->persist($product4);
 
         $product5 = new Product();
         $product5->setCategory($cat)
-            ->setProductLabel('Glock 17')
-            ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
-            ->setProductPrice(500.99)
+            ->setProductLabel('Barret 50 cal')
+            ->setProductDescription("Le Barrett M82 (aussi connu comme le M82 ou le M107) est un fusil anti-matériel américain développé par la Barrett Firearms Manufacturing. Il est conçu pour pouvoir tirer parti de la puissante cartouche de calibre . 50 (12,7 × 99 mm), conçue à l'origine pour la mitrailleuse lourde Browning M2.")
+            ->setProductPrice(2500)
             ->setSlug($this->slugger->slug($product5->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('barret_50.jpg');
         $manager->persist($product5);
 
         $product6 = new Product();
-        $product6->setCategory($cat)
-            ->setProductLabel('Glock 17')
-            ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
-            ->setProductPrice(500.99)
+        $product6->setCategory($cat6)
+            ->setProductLabel('Scar H')
+            ->setProductDescription("Ce nouveau fusil de calibre 7,62 mm offre des performances de tir remarquables, de jour comme de nuit, jusqu'à une distance de 800 mètres (là où les fusils d'assauts comme le HK 416 ont une portée de 300 mètres).")
+            ->setProductPrice(850)
             ->setSlug($this->slugger->slug($product6->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('scar_h.webp');
         $manager->persist($product6);
 
         $product7 = new Product();
-        $product7->setCategory($cat)
-            ->setProductLabel('Glock 17')
-            ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
-            ->setProductPrice(500.99)
+        $product7->setCategory($cat6)
+            ->setProductLabel('AK 47')
+            ->setProductDescription("L’AK-47 est un fusil d'assaut conçu par l'ingénieur soviétique Mikhaïl Kalachnikov. L'AK-47 est le premier modèle d'une vaste famille de fusils d'assaut à emprunt de gaz, dont le modèle le plus répandu est l'AKM.")
+            ->setProductPrice(450)
             ->setSlug($this->slugger->slug($product7->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('ak_47.jpg');
         $manager->persist($product7);
 
         $product8 = new Product();
