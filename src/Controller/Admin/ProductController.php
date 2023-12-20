@@ -24,6 +24,16 @@ class ProductController extends AbstractController
         ]);
     }
 
+
+    /**
+     * Adds a new product.
+     *
+     * @param Request $request The request object.
+     * @param EntityManagerInterface $em The EntityManagerInterface used to persist the product.
+     * @param SluggerInterface $slugger The SluggerInterface used to generate the product slug.
+     *
+     * @return Response The response object.
+     */
     #[Route('/add', name: 'add')]
     public function add(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {

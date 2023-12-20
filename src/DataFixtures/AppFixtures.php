@@ -228,7 +228,7 @@ class AppFixtures extends Fixture
             ->setSlug($this->slugger->slug($product2->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('fusils_assaut.jpg');
+            ->setProductImage('hk_416.jpg');
         $manager->persist($product2);
 
         $product3 = new Product();
@@ -287,37 +287,59 @@ class AppFixtures extends Fixture
         $manager->persist($product7);
 
         $product8 = new Product();
-        $product8->setCategory($cat)
-            ->setProductLabel('Glock 17')
-            ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
-            ->setProductPrice(500.99)
+        $product8->setCategory($cat5)
+            ->setProductLabel('Smith & Wesson 500 8.38')
+            ->setProductDescription("Qui pouvait repousser encore les limites du revolver si ce n'est le géant du secteur ? Avec son modèle 500, Smith & Wesson a conforté sa place dans l'histoire de l'armement. C'est donc avec fierté que l'Armurerie Auxerre vous propose ce monstre d'acier, ici dans sa version à canon long de 8.38. ")
+            ->setProductPrice(2200)
             ->setSlug($this->slugger->slug($product8->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('magnum.webp');
         $manager->persist($product8);
 
         $product9 = new Product();
-        $product9->setCategory($cat)
-            ->setProductLabel('Glock 17')
-            ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
-            ->setProductPrice(500.99)
+        $product9->setCategory($cat3)
+            ->setProductLabel('Mag 58')
+            ->setProductDescription("Les FN MAG vont équiper plus 80 armées dans le monde et les troupes semblent apprécier cette arme et elle est bien partie pour rester longtemps en service.")
+            ->setProductPrice(2600)
             ->setSlug($this->slugger->slug($product9->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('mag_58.jpeg');
         $manager->persist($product9);
 
         $product10 = new Product();
-        $product10->setCategory($cat)
-            ->setProductLabel('Glock 17')
-            ->setProductDescription("L'aspect novateur du Glock 17 est en effet qu'il s'agit tout simplement de la première arme de poing conçue en polymère.")
-            ->setProductPrice(500.99)
+        $product10->setCategory($cat3)
+            ->setProductLabel('Mossberg Maverick Rayé')
+            ->setProductDescription("Fabriqué aux USA, ce fusil à pompe ultra fiable et sa mécanique éprouvée en fait une arme qui ne vous décevra jamais. Cette nouvelle version du Maverick 88 est en 4+1 afin d’être répertoriée en catégorie C")
+            ->setProductPrice(684)
             ->setSlug($this->slugger->slug($product10->getProductLabel())->lower())
             ->setIsActive(1)
             ->setSupplier($supplier)
-            ->setProductImage('glock-17.jpg');
+            ->setProductImage('Maverick_88.jpg');
         $manager->persist($product10);
+
+        $product11 = new Product();
+        $product11->setCategory($cat2)
+            ->setProductLabel('PKM')
+            ->setProductDescription("La mitrailleuse Kalachnikov, plus connue sous les initiales PK de son nom russe : пулемёт Калашникова, poulemiot Kalachnikova, est une mitrailleuse soviétique adoptée en 1961 et produite depuis lors à plus d'un million d'exemplaires.")
+            ->setProductPrice(1000)
+            ->setSlug($this->slugger->slug($product11->getProductLabel())->lower())
+            ->setIsActive(1)
+            ->setSupplier($supplier)
+            ->setProductImage('PKM.jpg');
+        $manager->persist($product11);
+
+        $product12 = new Product();
+        $product12->setCategory($cat6)
+            ->setProductLabel('hk 417')
+            ->setProductDescription("Le HK417 est un fusil d'assaut de la firme Heckler & Koch, basé sur le modèle HK 416 mais chambré en 7,62 x 51 mm OTAN. ")
+            ->setProductPrice(1799)
+            ->setSlug($this->slugger->slug($product12->getProductLabel())->lower())
+            ->setIsActive(1)
+            ->setSupplier($supplier)
+            ->setProductImage('hk_417.webp');
+        $manager->persist($product12);
 
         // --------------------------
         // ----Order
