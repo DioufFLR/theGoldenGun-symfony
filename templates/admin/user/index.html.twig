@@ -1,20 +1,121 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Administration Produits{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container mx-auto">
+        <div class="flex text-center w-full justify-center my-10">
+            <h1 class="text-3xl flex font-bold md:text-5xl text-rose-400 ">
+                Utilisateurs
+            </h1>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/diouf/Bureau/theGoldenGun-symfony/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/diouf/Bureau/theGoldenGun-symfony/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-10">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-all-search" type="checkbox"
+                                   class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                        </div>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Vendeur
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Roles
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Nom d'utilisateur
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Adresse
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Types
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Reference client
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Coefficient
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for user in users %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-rose-300 dark:hover:bg-rose-300 dark:hover:text-gray-900">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-table-search-1" type="checkbox"
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ user.id }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ (user.salesPerson is not null) ? user.salesPerson.salesPersoneFirstName : 'Aucun' }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {% for role in user.roles %}
+                                {{ role }} <br>
+                            {% endfor %}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.userName }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ user.userAddress }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{  }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {#                            <img src="{{ asset('/assets/img/'~ product.productImage) }}" width="50px" alt="produit" class="rounded-full dark:bg-gray-800">#}
+                        </td>
+                        <td class="px-6 py-4">
+                            {#                            <img src="{{ asset('/assets/img/'~ product.productImage) }}" width="50px" alt="produit" class="rounded-full dark:bg-gray-800">#}
+                        </td>
+                        <td class="flex items-center px-6 py-4">
+{#                            <a href="{{ path('admin_products_edit', {'id': product.id}) }}">#}
+                                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Éditer
+                            </span>
+                                </button>
+                            </a>
+{#                            <a href="{{ path('admin_products_delete', {'id': product.id}) }}">#}
+                                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Supprimer
+                            </span>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 {% endblock %}
