@@ -44,7 +44,7 @@ class Product
     #[ORM\Column]
     private ?bool $is_active = null;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: OrderDetails::class)]
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: OrderDetails::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $orderDetails;
 
     public function __construct()
