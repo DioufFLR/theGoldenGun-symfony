@@ -48,6 +48,7 @@ class ProductFormType extends AbstractType
                 'label' => 'Image du produit',
                 'mapped' => true,
                 'required' => false,
+                'data_class' => null,
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',

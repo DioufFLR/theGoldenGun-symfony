@@ -126,9 +126,12 @@ class ProductController extends AbstractController
     }
 
     #[Route('/delete/{id}', name: 'delete')]
-    public function delete(Product $product): Response
+    public function delete(Product $product, EntityManagerInterface $em): Response
     {
-        return $this->render('admin/product/index.html.twig');
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_products_index');
     }
 
 }
