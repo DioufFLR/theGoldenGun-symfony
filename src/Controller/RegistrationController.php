@@ -35,6 +35,10 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
+            $user->setUserReference(sprintf('REF%03d', $user->getId()));
+
+            $entityManager->flush();
+
             return $userAuthenticator->authenticateUser(
                 $user,
                 $authenticator,

@@ -54,32 +54,6 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'edit')]
-    public function edit(User $user, Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder): Response
-    {
-        // Handle form submission
-        $form = $this->createForm(UserTypeForm::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Encode the password
-            $encodedPassword = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($encodedPassword);
-
-            // Save the user
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            // Redirect to the user list
-            return $this->redirectToRoute('admin_users_index');
-        }
-
-        return $this->render('admin/user/edit.html.twig', [
-            'controller_name' => 'Modification d\'un Utilisateur',
-            'form' => $form->createView()
-        ]);
-    }
-
     #[Route('/delete/{id}', name: 'delete')]
     public function delete(User $user, EntityManagerInterface $entityManager): Response
     {
