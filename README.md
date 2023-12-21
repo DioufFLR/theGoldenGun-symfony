@@ -6,6 +6,7 @@
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
+
 ## Getting Started
 
 
@@ -32,6 +33,11 @@ npm run watch
 symfony serve -d
 ```
 <br/>
+
+### Landing Page
+![readme1.png](public%2Fassets%2Fimg%2Freadme1.png)
+### Connexion Page
+![readme2.png](public%2Fassets%2Fimg%2Freadme2.png)
 
 ![badge-ukraine.svg](public%2Fassets%2Fimg%2Fbadge-ukraine.svg)
 ![diouf-fleur.svg](public%2Fassets%2Fimg%2Fdiouf-fleur.svg)
