@@ -11,6 +11,13 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelector('#closeMessage').addEventListener('click', function() {
+                        document.querySelector('#successMessage').style.display = 'none';
+                    });
+                });
+            </script>
 {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
