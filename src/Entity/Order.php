@@ -41,10 +41,10 @@ class Order
     #[ORM\Column(length: 255)]
     private ?string $orderShippingStatus = null;
 
-    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrderDetails::class)]
+    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrderDetails::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $orderDetails;
 
-    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: Payment::class)]
+    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: Payment::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $payments;
 
     public function __construct()

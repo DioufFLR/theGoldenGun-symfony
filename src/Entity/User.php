@@ -51,7 +51,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?SalesPerson $salesPerson = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class, cascade: ['remove'], orphanRemoval: true )]
     private Collection $orders;
 
 //    #[ORM\Column]
