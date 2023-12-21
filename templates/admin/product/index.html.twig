@@ -3,15 +3,100 @@
 {% block title %}Administration Produits{% endblock %}
 
 {% block body %}
-        <section class="container-fluid bg-gray-900">
-            <div class="flex">
-                <div class="flex text-center w-full justify-center my-10">
-                    <h1 class="text-3xl flex font-bold md:text-5xl text-rose-400 ">
-                        <span class="text-white">Tous les</span>
-                        Produits
-                    </h1>
-                </div>
-            </div>
-        </section>
+
+    <div class="container mx-auto">
+        <div class="flex text-center w-full justify-center my-10">
+            <h1 class="text-3xl flex font-bold md:text-5xl text-rose-400 ">
+                <span class="text-white">Tous les</span>
+                Produits
+            </h1>
+        </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-10">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-all-search" type="checkbox"
+                                   class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                        </div>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Label
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Prix
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Fournisseur
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Catégorie
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Image
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for product in products %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-rose-300 dark:hover:bg-rose-300 dark:hover:text-gray-900">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-table-search-1" type="checkbox"
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                            </div>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ product.id }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ product.productLabel }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ product.productPrice }} €
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ product.supplier.supplierName }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ product.category.categoryName }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ product.productImage }}
+                        </td>
+                        <td class="flex items-center px-6 py-4">
+                            <a href="{{ path('admin_products_edit', {'id': product.id}) }}">
+                                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Éditer
+                            </span>
+                                </button>
+                            </a>
+                            <a href="#">
+                                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Supprimer
+                            </span>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 
 {% endblock %}
