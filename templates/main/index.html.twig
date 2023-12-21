@@ -2,8 +2,10 @@
 
 {% block body %}
 
-
-    <section class="main">
+    <div class="">
+        <img src="{{ asset('assets/img/landing4.jpg') }}" alt="fond" height="40px" class="">
+    </div>
+    <section class="container mx-auto">
         {% if app.user %}
             <div class="bg-gray-200" id="successMessage">
                 <div class="flex items-center p-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-900 dark:text-green-400 dark:border-green-800"
@@ -25,123 +27,129 @@
                 </div>
             </div>
         {% endif %}
-        <!-- section hero -->
-        <section>
-            <div class="bg-gray-200 sm:grid grid-cols-5 px-3 pt-4 pb-2 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
+        <div class="bg-gray-200 relative">
 
-                <div class="h-96 col-span-4 bg-black rounded-md flex items-center">
-                    <div class="ml-20 w-90">
-                        <h2 class="text-rose-400 text-4xl">TheGoldenGun</h2>
-                        <p class="text-indigo-100 mt-4 font-thin tracking-wider leading-7 pr-4">Toutes les armes au meilleur
-                            prix
-                            ! Du fusil à pompe au fusil d'assaut les plus récents, tout est disponible chez nous. Nous sommes des passionnés d'armes en tout genre, venez avec nous partager votre passion ! </p>
-
-                        <a href="{{ path('app_product') }}"
-                           class="uppercase inline-block mt-8 text-sm bg-white py-2 px-4 rounded font-semibold hover:bg-rose-400">Voir toutes nos armes</a>
-                    </div>
-
+            {# Hero content #}
+            <div class="relative isolate px-6 pt-14 lg:px-8">
+                <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                     aria-hidden="true">
                 </div>
-                <div class="h-96 col-span-1 ">
-                    <div class="bg-white py-3 px-4 rounded-lg flex justify-around items-center ">
-                        <input type="text" placeholder="search..."
-                               class=" bg-gray-100 rounded-md  outline-none pl-2 ring-indigo-700 w-full mr-2 p-2">
-                        <span>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="h-6 w-6"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor "
-                        >
-                                <path stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                />
-                        </svg>
-                    </span>
-                    </div>
-                    <div class="bg-white  rounded-md">
-
-                        <h1 class="text-center text-xl my-4  bg-white py-2 rounded-md border-b-2 cursor-pointer  text-gray-600">
-                            Catégories</h1>
-                        <div class="bg-white rounded-md list-none  text-center ">
-                            <li class="py-3 border-b-2"><a href="/categories/1" class="list-none  hover:text-rose-400">Armes de
-                                    poing</a>
-                            </li>
-                            <li class="py-3 border-b-2"><a href="/categories/2" class="list-none  hover:text-rose-400">Armes
-                                    d'épaules</a></li>
-                            <li class="py-3 border-b-2"><a href="/categories/3" class="list-none  hover:text-rose-400">Armes
-                                    exotiques</a></li>
+                <div class="mx-auto max-w-2xl py-24 sm:py-32 lg:py-30">
+                    <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+                        <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                            Annonces pour le futur du site. <a href="#" class="font-semibold text-rose-400"><span
+                                        class="absolute inset-0" aria-hidden="true"></span>Lire plus <span
+                                        aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>
+                    <div class="text-center">
+                        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Les meilleures armes du
+                            marché</h1>
+                        <p class="mt-6 text-lg leading-8 text-gray-600">Envie de protéger votre famille ? Vous êtes au
+                            bon
+                            endroit, ici, vous trouverez tous ce qu'il vous faut. Nos conseillers seront là pour vous
+                            n'hésitez
+                            pas ! </p>
+                    </div>
+                </div>
+                <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                     aria-hidden="true">
                 </div>
             </div>
+            <!-- section hero -->
+            <section>
+                <div class="bg-gray-200 sm:grid px-3 pt-4 pb-2 min-h-full space-y-6 sm:space-y-0 sm:gap-4">
 
-        </section>
+                    <div class="h-96 col-span-4 bg-black rounded-md flex items-center">
+                        <div class="ml-20 w-90">
+                            <h2 class="text-rose-400 text-4xl">TheGoldenGun</h2>
+                            <p class="text-indigo-100 mt-4 font-thin tracking-wider leading-7 pr-4">Toutes les armes au
+                                meilleur
+                                prix
+                                ! Du fusil à pompe au fusil d'assaut les plus récents, tout est disponible chez nous.
+                                Nous sommes des passionnés d'armes en tout genre, venez avec nous partager votre passion
+                                ! </p>
 
+                            <a href="{{ path('app_product') }}"
+                               class="uppercase inline-block mt-8 text-sm bg-white py-2 px-4 rounded font-semibold hover:bg-rose-400">Voir
+                                toutes nos armes</a>
+                        </div>
+                    </div>
+
+                    {#                <div class="h-96 col-span-1 "> #}
+                    {#                    <div class="bg-white py-3 px-4 rounded-lg flex justify-around items-center "> #}
+                    {#                        <input type="text" placeholder="search..." #}
+                    {#                               class=" bg-gray-100 rounded-md  outline-none pl-2 ring-indigo-700 w-full mr-2 p-2"> #}
+                    {#                        <span> #}
+                    {#                        <svg xmlns="http://www.w3.org/2000/svg" #}
+                    {#                             class="h-6 w-6" #}
+                    {#                             fill="none" #}
+                    {#                             viewBox="0 0 24 24" #}
+                    {#                             stroke="currentColor " #}
+                    {#                        > #}
+                    {#                                <path stroke-linecap="round" #}
+                    {#                                      stroke-linejoin="round" #}
+                    {#                                      stroke-width="2" #}
+                    {#                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" #}
+                    {#                                /> #}
+                    {#                        </svg> #}
+                    {#                    </span> #}
+                    {#                    </div> #}
+                    {#                    <div class="bg-white  rounded-md"> #}
+
+                    {#                        <h1 class="text-center text-xl my-4  bg-white py-2 rounded-md border-b-2 cursor-pointer  text-gray-600"> #}
+                    {#                            Catégories</h1> #}
+                    {#                        <div class="bg-white rounded-md list-none  text-center "> #}
+                    {#                            <li class="py-3 border-b-2"><a href="/categories/1" class="list-none  hover:text-rose-400">Armes de #}
+                    {#                                    poing</a> #}
+                    {#                            </li> #}
+                    {#                            <li class="py-3 border-b-2"><a href="/categories/2" class="list-none  hover:text-rose-400">Armes #}
+                    {#                                    d'épaules</a></li> #}
+                    {#                            <li class="py-3 border-b-2"><a href="/categories/3" class="list-none  hover:text-rose-400">Armes #}
+                    {#                                    exotiques</a></li> #}
+                    {#                        </div> #}
+                    {#                    </div> #}
+                    {#                </div> #}
+
+                </div>
+
+            </section>
+
+            {# Hero content end #}
+            <!-- background -->
+            <div class="mt-[10rem]">
+                <h1 class="flex justify-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Nos
+                    Catégories</h1>
+            </div>
+            <div class="relative grid grid-cols-1 xl:grid-cols-3 justify-center gap-4 py-6">
+
+                <!-- card -->
+                {% for category in categories %}
+                    <div class="mx-auto flex flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60">
+                        <!-- img -->
+                        <img class="aspect-video w-96 rounded-t-2xl object-cover object-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                             src='{{ asset('assets/img/'~ category.categoryImage) }}'/>
+                        <!-- text information -->
+                        <div class="p-4">
+                            <small class="text-rose-400 text-xs">theGoldenGun</small>
+                            <h1 class="text-2xl font-medium text-slate-600 pb-2">{{ category.categoryName }}</h1>
+                            <p class="text-sm tracking-tight font-light text-slate-400 leading-6">{{ category.categoryDescription }}</p>
+                        </div>
+                        <div class="flex justify-center py-3">
+                            <button
+                                    data-ripple-light="true"
+                                    data-popover-target="popover"
+                                    class="middle none center rounded-lg bg-gradient-to-r from-rose-600 to-rose-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                            >
+                                <a href="{{ path('app_categories', { category: category.id }) }}">Voir</a>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
     </section>
 
-    <div class="bg-gray-200 relative">
 
-        {# Hero content #}
-        <div class="relative isolate px-6 pt-14 lg:px-8">
-            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-                 aria-hidden="true">
-            </div>
-            <div class="mx-auto max-w-2xl py-24 sm:py-32 lg:py-30">
-                <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-                    <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                        Annonces pour le futur du site. <a href="#" class="font-semibold text-rose-400"><span
-                                    class="absolute inset-0" aria-hidden="true"></span>Lire plus <span
-                                    aria-hidden="true">&rarr;</span></a>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Les meilleures armes du
-                        marché</h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Envie de protéger votre famille ? Vous êtes au
-                        bon
-                        endroit, ici, vous trouverez tous ce qu'il vous faut. Nos conseillers seront là pour vous
-                        n'hésitez
-                        pas ! </p>
-                </div>
-            </div>
-            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                 aria-hidden="true">
-            </div>
-        </div>
-        {# Hero content end #}
-        <!-- background -->
-        <div>
-            <h1 class="flex justify-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl my-8">Nos
-                Catégories</h1>
-        </div>
-        <div class="relative grid grid-cols-1 xl:grid-cols-3 justify-center gap-4 py-6">
-
-            <!-- card -->
-            {% for category in categories %}
-                <div class="mx-auto flex flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60">
-                    <!-- img -->
-                    <img class="aspect-video w-96 rounded-t-2xl object-cover object-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-                         src='{{ asset('assets/img/'~ category.categoryImage) }}'/>
-                    <!-- text information -->
-                    <div class="p-4">
-                        <small class="text-rose-400 text-xs">theGoldenGun</small>
-                        <h1 class="text-2xl font-medium text-slate-600 pb-2">{{ category.categoryName }}</h1>
-                        <p class="text-sm tracking-tight font-light text-slate-400 leading-6">{{ category.categoryDescription }}</p>
-                    </div>
-                    <div class="flex justify-center py-3">
-                        <button
-                                data-ripple-light="true"
-                                data-popover-target="popover"
-                                class="middle none center rounded-lg bg-gradient-to-r from-rose-600 to-rose-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-                        >
-                            <a href="{{ path('app_categories', { category: category.id }) }}">Voir</a>
-                        </button>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-    </div>
 {% endblock %}
