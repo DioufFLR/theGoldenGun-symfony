@@ -92,16 +92,17 @@
                             <h2 class="mb-8 text-3xl font-bold text-gray-700 dark:text-white">Récapitulatif</h2>
 {#                            <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-300 dark:border-gray-700 ">#}
 {#                                <span class="text-gray-700 dark:text-white">Sous-total</span>#}
-{#                                <span class="text-xl font-bold text-gray-700 dark:text-white ">{{ total }}€</span>#}
+{#                                <span class="text-xl font-bold text-gray-700 dark:text-white"#}
+{#                                      id="total">{{ total }}€</span>#}
 {#                            </div>#}
                             <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-white ">Livraison</span>
-                                <span class="text-xl font-bold text-gray-700 dark:text-white ">Offerte</span>
+                                <span class="text-xl font-bold text-gray-700 dark:text-white id='livraison'">{{ (total) > 5000 ? 'Offerte' : 500 }}</span>
                             </div>
                             <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-white">Total</span>
                                 <span class="text-xl font-bold text-gray-700 dark:text-white"
-                                      id="total">{{ total }}€</span>
+                                      id="total">{{ total  }}€</span>
                             </div>
                             <h2 class="text-lg text-gray-500 dark:text-white">Modes de paiement :</h2>
                             <div class="flex items-center mb-4 ">

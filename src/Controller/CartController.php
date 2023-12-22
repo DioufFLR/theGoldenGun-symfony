@@ -67,8 +67,30 @@ class CartController extends AbstractController
             $this->session->set('cartId', $cart->getId());
         }
 
-        // Ajout du produit au panier
-        $this->cartService->addToCart($cart, $product);
+        $foundInCart = false;
+
+        // Parcours toutes les cartItems dans le panier
+        foreach($cart->getCartItems() as $cartItem) {
+            // Si le produit existe déjà dans le panier
+            if($cartItem->getProduct() === $product) {
+                // Incrementer la quantité plutôt que de créer un nouvel CartItem
+                $cartItem->setQuantity($cartItem->getQuantity() + 1);
+                $this->em->flush();
+
+                $foundInCart = true;
+                break;  // Si nous avons trouvé le produit, arrêtons la boucle
+            }
+        }
+
+        if (!$foundInCart){
+            // Si le produit n'existe pas dans le cartItem, créez un nouveau CartItem
+            $cartItem = new CartItem();
+            $cartItem->setProduct($product)
+                ->setQuantity(1)
+                ->setCart($cart);
+            $this->em->persist($cartItem);
+            $this->em->flush();
+        }
 
         // Redirection vers la page du panier
         return $this->redirectToRoute('cart_show');
