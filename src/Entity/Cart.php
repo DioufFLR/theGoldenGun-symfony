@@ -22,12 +22,6 @@ class Cart
     private Collection $products;
 
     #[ORM\Column]
-    private ?int $totalQuantity = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $totalPrice = null;
-
-    #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\Column]
@@ -37,7 +31,7 @@ class Cart
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'cart', targetEntity: CartItem::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'cart', targetEntity: CartItem::class, cascade: ["persist"], orphanRemoval: true)]
     private Collection $cartItems;
 
     public function __construct()
@@ -77,30 +71,6 @@ class Cart
                 $product->setCart(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getTotalQuantity(): ?int
-    {
-        return $this->totalQuantity;
-    }
-
-    public function setTotalQuantity(int $totalQuantity): static
-    {
-        $this->totalQuantity = $totalQuantity;
-
-        return $this;
-    }
-
-    public function getTotalPrice(): ?string
-    {
-        return $this->totalPrice;
-    }
-
-    public function setTotalPrice(string $totalPrice): static
-    {
-        $this->totalPrice = $totalPrice;
 
         return $this;
     }

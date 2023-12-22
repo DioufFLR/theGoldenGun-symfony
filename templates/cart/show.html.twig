@@ -15,10 +15,10 @@
 
         {% for cartItem in cart.cartItems %}
             <tr>
-                <td>{{ cartItem.product.name }}</td>
+                <td>{{ cartItem.product.productLabel }}</td>
                 <td>{{ cartItem.quantity }}</td>
-                <td>{{ cartItem.product.price }}</td>
-                <td>{{ cartItem.product.price * cartItem.quantity }}</td>
+                <td>{{ cartItem.product.productPrice }}</td>
+                <td>{{ cartItem.product.productPrice * cartItem.quantity }}</td>
             </tr>
         {% endfor %}
     </table>

@@ -38,7 +38,19 @@ class CartController extends AbstractController
         if ($cartId) {
             $cart = $this->em->getRepository(Cart::class)->find($cartId);
         } else {
+            $user = $this->getUser(); // récupère l'utilisateur actuellement connecté
+
+            // vérifie si un utilisateur est connecté
+            if (!$user) {
+                throw new \Exception('Vous devez être connecté pour ajouter des produits au panier');
+            }
+
             $cart = new Cart();
+            $cart->setCreatedAt(new \DateTimeImmutable());
+            $cart->setIsPurshased(false);
+
+            $cart->setUser($user); // lien entre le panier et l'utilisateur
+
             $this->em->persist($cart);
             $this->em->flush();
 
@@ -77,11 +89,25 @@ class CartController extends AbstractController
     public function showCart(): \Symfony\Component\HttpFoundation\Response
     {
         $cartId = $this->session->get('cartId');
-        if (!$cartId) {
-            throw $this->createNotFoundException('Le panier n\'a pas été trouvé');
+        $cart = null;
+
+        if (!$cartId && $this->getUser()) {
+            // Si l'ID du panier n'est pas en session et que l'utilisateur est connecté,
+            // on récupère le panier de l'utilisateur.
+            $cart = $this->getUser()->getCart();
+        } elseif($cartId) {
+            // Sinon, si l'ID du panier est en session, on récupère le panier par cet ID.
+            $cart = $this->em->getRepository(Cart::class)->find($cartId);
         }
 
-        $cart = $this->em->getRepository(Cart::class)->find($cartId);
+        if (!$cart) {
+            // Si aucun panier n'a été trouvé, vous pouvez soit en créer un nouveau, soit rediriger vers une autre page.
+             $cart = new Cart();
+             $this->em->persist($cart);
+             $this->em->flush();
+
+            return $this->redirectToRoute('app_main');
+        }
 
         return $this->render('cart/show.html.twig', [
             'cart' => $cart,
