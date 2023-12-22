@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier - TheGoldenGun{% endblock %}
+
+{% block body %}
+    <h1>Mon Panier</h1>
+
+    <table>
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Total</th>
+        </tr>
+
+        {% for cartItem in cart.cartItems %}
+            <tr>
+                <td>{{ cartItem.product.name }}</td>
+                <td>{{ cartItem.quantity }}</td>
+                <td>{{ cartItem.product.price }}</td>
+                <td>{{ cartItem.product.price * cartItem.quantity }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p><strong> Total du Panier : {{ total }} </strong></p>
+{% endblock %}
