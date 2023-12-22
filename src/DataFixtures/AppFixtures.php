@@ -216,6 +216,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(500.99)
             ->setSlug($this->slugger->slug($product->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(32)
             ->setSupplier($supplier)
             ->setProductImage('glock-17.jpg');
         $manager->persist($product);
@@ -227,6 +228,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(899.99)
             ->setSlug($this->slugger->slug($product2->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(66)
             ->setSupplier($supplier)
             ->setProductImage('hk_416.jpg');
         $manager->persist($product2);
@@ -238,6 +240,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(1500.99)
             ->setSlug($this->slugger->slug($product3->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(125)
             ->setSupplier($supplier)
             ->setProductImage('shotgun.jpg');
         $manager->persist($product3);
@@ -249,6 +252,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(500.99)
             ->setSlug($this->slugger->slug($product4->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(123)
             ->setSupplier($supplier)
             ->setProductImage('glock_21.jpeg');
         $manager->persist($product4);
@@ -260,6 +264,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(2500)
             ->setSlug($this->slugger->slug($product5->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(45)
             ->setSupplier($supplier)
             ->setProductImage('barret_50.jpg');
         $manager->persist($product5);
@@ -271,6 +276,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(850)
             ->setSlug($this->slugger->slug($product6->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(166)
             ->setSupplier($supplier)
             ->setProductImage('scar_h.webp');
         $manager->persist($product6);
@@ -282,6 +288,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(450)
             ->setSlug($this->slugger->slug($product7->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(10)
             ->setSupplier($supplier)
             ->setProductImage('ak_47.jpg');
         $manager->persist($product7);
@@ -293,6 +300,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(2200)
             ->setSlug($this->slugger->slug($product8->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(3)
             ->setSupplier($supplier)
             ->setProductImage('magnum.webp');
         $manager->persist($product8);
@@ -304,6 +312,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(2600)
             ->setSlug($this->slugger->slug($product9->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(19)
             ->setSupplier($supplier)
             ->setProductImage('mag_58.jpeg');
         $manager->persist($product9);
@@ -315,6 +324,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(684)
             ->setSlug($this->slugger->slug($product10->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(34)
             ->setSupplier($supplier)
             ->setProductImage('Maverick_88.jpg');
         $manager->persist($product10);
@@ -326,6 +336,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(1000)
             ->setSlug($this->slugger->slug($product11->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(50)
             ->setSupplier($supplier)
             ->setProductImage('PKM.jpg');
         $manager->persist($product11);
@@ -337,6 +348,7 @@ class AppFixtures extends Fixture
             ->setProductPrice(1799)
             ->setSlug($this->slugger->slug($product12->getProductLabel())->lower())
             ->setIsActive(1)
+            ->setProductStock(200)
             ->setSupplier($supplier)
             ->setProductImage('hk_417.webp');
         $manager->persist($product12);

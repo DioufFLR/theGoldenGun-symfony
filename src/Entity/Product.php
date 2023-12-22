@@ -47,6 +47,9 @@ class Product
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: OrderDetails::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $orderDetails;
 
+    #[ORM\Column]
+    private ?int $productStock = null;
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
@@ -167,6 +170,18 @@ class Product
                 $orderDetail->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProductStock(): ?int
+    {
+        return $this->productStock;
+    }
+
+    public function setProductStock(int $productStock): static
+    {
+        $this->productStock = $productStock;
 
         return $this;
     }

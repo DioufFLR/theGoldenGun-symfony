@@ -8,6 +8,7 @@ use App\Entity\Supplier;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -67,6 +68,14 @@ class ProductFormType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'class' => 'w-1/2'
+                ],
+            ])
+            ->add('productStock', IntegerType::class, [
+                'label' => 'Stock',
+                'mapped' => true,
+                'required' => true,
+                'attr' => [
+                    'class' => 'mt-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                 ],
             ])
             ->add('supplier', EntityType::class, [

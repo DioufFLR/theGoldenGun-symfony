@@ -31,6 +31,12 @@
         {{ form_widget(productForm.is_active) }}
     </div>
     <div class="my-6">
+        <label for="{{ productForm.productStock.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Stock
+        </label>
+        {{ form_widget(productForm.productStock) }}
+    </div>
+    <div class="my-6">
         <label for="{{ productForm.supplier.vars.id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Fournisseur
         </label>

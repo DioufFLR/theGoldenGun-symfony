@@ -33,6 +33,12 @@
                         Prix
                     </th>
                     <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Actif?
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
+                        Stock
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
                         Fournisseur
                     </th>
                     <th scope="col" class="px-6 py-3 text-rose-400 font-bold">
@@ -64,6 +70,12 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ product.productPrice }} €
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ product.isActive ? 'Actif' : 'Inactif' }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ product.productStock }}
                         </td>
                         <td class="px-6 py-4">
                             {{ product.supplier.supplierName }}
