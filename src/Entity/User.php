@@ -54,6 +54,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class, cascade: ['remove'], orphanRemoval: true )]
     private Collection $orders;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Cart $cart = null;
+
 //    #[ORM\Column]
 //    private ?bool $is_verified = null;
 
@@ -245,4 +248,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 //
 //        return $this;
 //    }
+
+public function getCart(): ?Cart
+{
+    return $this->cart;
+}
+
+public function setCart(Cart $cart): static
+{
+    // set the owning side of the relation if necessary
+    if ($cart->getUser() !== $this) {
+        $cart->setUser($this);
+    }
+
+    $this->cart = $cart;
+
+    return $this;
+}
 }
