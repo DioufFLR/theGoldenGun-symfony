@@ -96,18 +96,22 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart_show');
     }
 
-    #[Route('/cart/remove/{productId}', name: 'cart_remove', methods: ["GET", "POST"])]
+    #[Route('/cart/remove/{cartItemId}', name: 'cart_remove', methods: ["GET", "POST"])]
     public function removeFromCart(Request $request, $cartItemId): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         $cartId = $this->session->get('cartId');
-        if (!$cartId) {
+        $user   = $this->getUser();
+
+        if ($cartId) {
+            $cart = $this->em->getRepository(Cart::class)->find($cartId);
+        } elseif ($user) {
+            $cart = $user->getCart();
+        } else {
             throw $this->createNotFoundException('Le panier n\'a pas été trouvé');
         }
 
-        $cart = $this->em->getRepository(Cart::class)->find($cartId);
-
         $cartItem = $this->em->getRepository(CartItem::class)->find($cartItemId);
-        if (!$cartItem) {
+        if (! $cartItem) {
             throw $this->createNotFoundException('Le produit du panier n\'a pas été trouvé');
         }
 
