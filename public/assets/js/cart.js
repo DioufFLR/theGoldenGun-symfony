@@ -1,5 +1,5 @@
 // Définissons d'abord la fonction updateQuantity
-function updateQuantity(cartItemId, quantity) {
+function updateQuantity( cartItemId, quantity ) {
     fetch(`/cart/update/${ cartItemId }`, {
         method: 'POST',
         headers: {
@@ -17,7 +17,8 @@ function updateQuantity(cartItemId, quantity) {
                 // Recalcul du total
                 let totalElement = document.querySelector('#total');
                 let total = Array.from(document.querySelectorAll('.item-total'))
-                    .reduce((total, itemTotalElement) => {
+                    .reduce(( total, itemTotalElement ) =>
+                    {
                         return total + parseFloat(itemTotalElement.textContent);
                     }, 0);
 
@@ -40,10 +41,10 @@ window.addEventListener('DOMContentLoaded', () =>
         button.addEventListener('click', function ()
         {
             let targetId = this.dataset.cartitemId;
-            let quantityInput = this.parentElement.querySelector('.quantity-input');
-            let newQuantity = parseInt(quantityInput.value) - 1;
-            newQuantity = newQuantity < 1 ? 1 : newQuantity; // Assurez-vous que la quantité est au moins 1
-            quantityInput.value = newQuantity;
+            let quantityDisplay = this.parentElement.querySelector('.quantity-display');
+            let newQuantity = parseInt(quantityDisplay.textContent) - 1;
+            newQuantity = newQuantity < 1 ? 1 : newQuantity; // Make sure quantity is at least 1
+            quantityDisplay.textContent = newQuantity;
             updateQuantity(targetId, newQuantity);
         });
     });
@@ -53,9 +54,9 @@ window.addEventListener('DOMContentLoaded', () =>
         button.addEventListener('click', function ()
         {
             let targetId = this.dataset.cartitemId;
-            let quantityInput = this.parentElement.querySelector('.quantity-input');
-            let newQuantity = parseInt(quantityInput.value) + 1;
-            quantityInput.value = newQuantity;
+            let quantityDisplay = this.parentElement.querySelector('.quantity-display');
+            let newQuantity = parseInt(quantityDisplay.textContent) + 1;
+            quantityDisplay.textContent = newQuantity;
             updateQuantity(targetId, newQuantity);
         });
     });

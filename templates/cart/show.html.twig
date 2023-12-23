@@ -51,22 +51,35 @@
                                             €</p>
                                     </div>
                                     <div class="w-auto px-4 md:w-1/6 lg:w-2/12 ">
-                                        <div class="inline-flex items-center px-4 font-semibold text-gray-500 border border-gray-200 rounded-md dark:border-gray-700 ">
+                                        <div class="inline-flex items-center px-4 font-semibold text-gray-500 rounded-md  ">
                                             <button data-cartitem-id="{{ cartItem.id }}"
-                                                    class="decrease-quantity py-2 hover:text-gray-700 dark:text-white me-3">
-                                                -
+                                                    class="decrease-quantity py-2 hover:text-orange-600 dark:text-white me-3">
+                                                <svg class="w-4 h-4 text-gray-800 dark:text-white dark:hover:text-orange-600"
+                                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                     viewBox="0 0 10 14">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="2"
+                                                          d="M5 1v12m0 0 4-4m-4 4L1 9"/>
+                                                </svg>
                                             </button>
-                                            <input type="number" value="{{ cartItem.quantity }}"
-                                                   id="quantity-{{ cartItem.id }}"
-                                                   class="quantity-input w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-white md:text-right">
+                                            <p id="quantity-{{ cartItem.id }}"
+                                               class="quantity-display w-12 px-5 py-2 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-white md:text-right">{{ cartItem.quantity }}</p>
                                             <button data-cartitem-id="{{ cartItem.id }}"
-                                                    class="increase-quantity py-2 hover:text-gray-700 dark:text-white">+
+                                                    class="increase-quantity py-2 hover:text-green-400 dark:text-white ">
+                                                <svg class="w-4 h-4 text-gray-800 dark:text-white dark:hover:text-green-400"
+                                                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                     viewBox="0 0 10 14">
+                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="2"
+                                                          d="M5 13V1m0 0L1 5m4-4 4 4"/>
+                                                </svg>
                                             </button>
                                             <a href="{{ path('cart_remove', {'cartItemId': cartItem.id}) }}"
-                                               class="btn-delete text-red-500 hover:text-red-700">
-                                                x
+                                               class=" text-white dark:hover:text-red-700 ml-4 ">
+                                                <p class="w-[30px] cursor-pointer">x</p>
                                             </a>
                                         </div>
+
                                     </div>
                                     <div class="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
                                         <p id="item-total-{{ cartItem.id }}"
@@ -94,11 +107,11 @@
                     <div class="w-full px-4 xl:w-4/12">
                         <div class="p-6 border border-blue-100 dark:bg-gray-900 dark:border-gray-900 bg-blue-50 md:p-8">
                             <h2 class="mb-8 text-3xl font-bold text-gray-700 dark:text-white">Récapitulatif</h2>
-{#                            <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-300 dark:border-gray-700 ">#}
-{#                                <span class="text-gray-700 dark:text-white">Sous-total</span>#}
-{#                                <span class="text-xl font-bold text-gray-700 dark:text-white"#}
-{#                                      id="total">{{ total }}€</span>#}
-{#                            </div>#}
+                            {#                            <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-300 dark:border-gray-700 "> #}
+                            {#                                <span class="text-gray-700 dark:text-white">Sous-total</span> #}
+                            {#                                <span class="text-xl font-bold text-gray-700 dark:text-white" #}
+                            {#                                      id="total">{{ total }}€</span> #}
+                            {#                            </div> #}
                             <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-white ">Livraison</span>
                                 <span class="text-xl font-bold text-gray-700 dark:text-white id='livraison'">{{ (total) > 5000 ? 'Offerte' : 500 }}</span>
@@ -106,7 +119,7 @@
                             <div class="flex items-center justify-between pb-4 mb-4 ">
                                 <span class="text-gray-700 dark:text-white">Total</span>
                                 <span class="text-xl font-bold text-gray-700 dark:text-white"
-                                      id="total">{{ total  }}€</span>
+                                      id="total">{{ total }}€</span>
                             </div>
                             <h2 class="text-lg text-gray-500 dark:text-white">Modes de paiement :</h2>
                             <div class="flex items-center mb-4 ">
