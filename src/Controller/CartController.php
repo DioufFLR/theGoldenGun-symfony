@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Cart;
 use App\Entity\CartItem;
+use App\Entity\Order;
 use App\Entity\Product;
+use App\Repository\OrderRepository;
 use App\Service\CartService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,9 +72,9 @@ class CartController extends AbstractController
         $foundInCart = false;
 
         // Parcours toutes les cartItems dans le panier
-        foreach($cart->getCartItems() as $cartItem) {
+        foreach ($cart->getCartItems() as $cartItem) {
             // Si le produit existe déjà dans le panier
-            if($cartItem->getProduct() === $product) {
+            if ($cartItem->getProduct() === $product) {
                 // Incrementer la quantité plutôt que de créer un nouvel CartItem
                 $cartItem->setQuantity($cartItem->getQuantity() + 1);
                 $this->em->flush();
@@ -82,7 +84,7 @@ class CartController extends AbstractController
             }
         }
 
-        if (!$foundInCart){
+        if (!$foundInCart) {
             // Si le produit n'existe pas dans le cartItem, créez un nouveau CartItem
             $cartItem = new CartItem();
             $cartItem->setProduct($product)
@@ -100,7 +102,7 @@ class CartController extends AbstractController
     public function removeFromCart(Request $request, $cartItemId): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         $cartId = $this->session->get('cartId');
-        $user   = $this->getUser();
+        $user = $this->getUser();
 
         if ($cartId) {
             $cart = $this->em->getRepository(Cart::class)->find($cartId);
@@ -111,7 +113,7 @@ class CartController extends AbstractController
         }
 
         $cartItem = $this->em->getRepository(CartItem::class)->find($cartItemId);
-        if (! $cartItem) {
+        if (!$cartItem) {
             throw $this->createNotFoundException('Le produit du panier n\'a pas été trouvé');
         }
 
