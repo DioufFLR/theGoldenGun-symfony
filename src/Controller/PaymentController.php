@@ -6,7 +6,6 @@ use App\Entity\Cart;
 use Doctrine\ORM\EntityManagerInterface;
 use Stripe\Exception\ApiErrorException;
 use Stripe\StripeClient;
-use Stripe\Checkout\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
